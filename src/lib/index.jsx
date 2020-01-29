@@ -103,7 +103,7 @@ class SingleOtpInput extends PureComponent<*> {
             isDisabled && disabledStyle,
             hasErrored && errorStyle
           )}
-          type={isInputNum ? 'number' : 'text'}
+          type={isInputNum ? 'tel' : 'text'}
           {...numValueLimits}
           maxLength="1"
           ref={input => {
@@ -139,7 +139,7 @@ class OtpInput extends Component<Props, State> {
   handleOtpChange = (otp: string[]) => {
     const { onChange, isInputNum } = this.props;
     const otpValue = otp.join('');
-    onChange(isInputNum ? Number(otpValue) : otpValue);
+    onChange(otpValue);
   };
 
   // Focus on input by index
